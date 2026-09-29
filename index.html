@@ -6,21 +6,22 @@
 <title>Emil & Jitha — 17.10.2026</title>
 <meta name="description" content="The wedding of Emil Kayyalackakath Jaison & Jitha Edathil Chacko — 17 October 2026.">
 <meta name="theme-color" content="#2E2A22">
+<link rel="canonical" href="https://emil-jitha.vercel.app/">
 
-<!-- Open Graph / social share preview
-     NOTE: og:url and og:image need ABSOLUTE URLs. Replace YOUR-DOMAIN.com once the site is hosted.
-     The preview picture itself is just assets/og-image.jpg — replace that file, nothing else. -->
+<!-- Open Graph / social share preview (live site: https://emil-jitha.vercel.app/)
+     The preview picture is assets/og-image.jpg — replace that file to change it. -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://YOUR-DOMAIN.com/">
+<meta property="og:url" content="https://emil-jitha.vercel.app/">
 <meta property="og:title" content="Emil & Jitha — 17.10.2026">
 <meta property="og:description" content="Together with their families, Emil & Jitha joyfully invite you to their wedding on 17 October 2026.">
-<meta property="og:image" content="https://YOUR-DOMAIN.com/assets/og-image.jpg">
+<meta property="og:image" content="https://emil-jitha.vercel.app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:height" content="675">
+<meta property="og:image:type" content="image/jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Emil & Jitha — 17.10.2026">
 <meta name="twitter:description" content="Together with their families, Emil & Jitha joyfully invite you to their wedding on 17 October 2026.">
-<meta name="twitter:image" content="https://YOUR-DOMAIN.com/assets/og-image.jpg">
+<meta name="twitter:image" content="https://emil-jitha.vercel.app/assets/og-image.jpg">
 <link rel="icon" href="assets/og-image.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -824,12 +825,17 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
   object-fit:cover; 
   object-position:center center;
 }
+#thankyou .bg-media{ object-position:center 45%; }
 #thankyou .bg-scrim{
-  background:linear-gradient(180deg, rgba(35,30,21,0) 0%, rgba(35,30,21,0) 42%, rgba(30,26,18,0.55) 66%, rgba(25,21,13,0.8) 100%);
+  background:linear-gradient(180deg, rgba(46,42,34,0.2) 0%, rgba(46,42,34,0.16) 35%, rgba(35,30,21,0.3) 65%, rgba(30,26,18,0.5) 100%);
 }
 #thankyou .content{
-  align-items:center;justify-content:flex-end;text-align:center;color:var(--ivory);
-  padding:56vh 26px 48px;
+  align-items:center;justify-content:center;text-align:center;color:var(--ivory);
+  padding:84px 26px 64px;
+}
+#thankyou .content::before{
+  content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 100% 60% at 50% 48%, rgba(22,18,10,0.55) 0%, rgba(22,18,10,0.36) 55%, rgba(22,18,10,0) 100%);
 }
 #thankyou .ty-signoff{
   font-family:var(--font-label);
@@ -1089,11 +1095,11 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
   </section>
 
   <!-- ============================================================
-       08 — WITH LOVE / FOOTER   (assets/couple-bw.jpg)
+       08 — WITH LOVE / FOOTER   (assets/couple-footer-bg.jpg)
   ============================================================ -->
   <section class="page imgpage" id="thankyou">
     <div class="page-frame"></div>
-    <img class="bg-media" src="assets/couple-bw.jpg" alt="">
+    <img class="bg-media" src="assets/couple-footer-bg.jpg" alt="">
     <div class="bg-scrim"></div>
     <div class="content">
       <div class="ty-signoff reveal" style="--i:0">With Love</div>
