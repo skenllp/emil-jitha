@@ -895,6 +895,59 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
 #musicToggle.playing .mute-line{opacity:0;}
 #musicToggle.playing{border-color:rgba(198,161,91,0.85);}
 
+
+/* ============================================================
+   OUR MOMENTS (gallery) — added section
+   ============================================================ */
+#moments{
+  min-height:0;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(232,217,188,0.55) 0%, rgba(232,217,188,0) 70%),
+    var(--ivory);
+  color:var(--charcoal);
+  overflow:hidden;
+}
+#moments .moments-inner{
+  position:relative;z-index:6;
+  padding:92px 30px 84px;
+  text-align:center;
+}
+#moments .eyebrow{color:var(--gold-deep);text-shadow:none;}
+#moments h2{
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:clamp(28px,8vw,34px);margin:10px 0 6px;color:var(--charcoal);
+}
+#moments .moments-sub{
+  font-family:var(--font-body);font-style:italic;
+  font-size:clamp(16.5px,4.6vw,18.5px);color:var(--charcoal-soft);margin:0;
+}
+#moments .divider{margin:20px auto 38px;}
+#moments .moments-album{display:flex;flex-direction:column;gap:30px;}
+#moments .moment{
+  margin:0;
+  padding:6px;
+  background:var(--ivory);
+  border:1px solid rgba(198,161,91,0.7);
+  border-radius:22px;
+  box-shadow:0 14px 34px rgba(80,60,25,0.14), 0 2px 6px rgba(80,60,25,0.08);
+  opacity:0;
+  transform:translateY(16px) scale(0.98);
+  transition:opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1);
+  transition-delay:calc(var(--i,0) * 150ms);
+}
+#moments .moment.in{opacity:1;transform:none;}
+#moments .moment img{
+  width:100%;height:auto;display:block;
+  object-fit:cover;object-position:50% 50%;
+  border-radius:16px;
+}
+#moments .moment-1{width:100%;}
+#moments .moment-1 img{aspect-ratio:5/4;object-position:50% 52%;}
+#moments .moment-2{width:88%;align-self:flex-end;}
+#moments .moment-2 img{aspect-ratio:3/2;object-position:50% 50%;}
+#moments .moment-3{width:80%;align-self:flex-start;}
+#moments .moment-3 img{aspect-ratio:3/2;object-position:50% 50%;}
+
 /* ============================================================
    RESPONSIVE - larger screens
    ============================================================ */
@@ -1071,6 +1124,40 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
       </div>
     </div>
   </section>
+
+  <!-- ============================================================
+       OUR MOMENTS — photo gallery (assets/gallery/)
+  ============================================================ -->
+  <section class="page" id="moments">
+    <div class="page-frame"></div>
+    <div class="moments-inner">
+      <div class="reveal" style="--i:0">
+        <div class="eyebrow">Gallery</div>
+        <h2>Our Moments</h2>
+        <p class="moments-sub">A few moments from our journey together.</p>
+      </div>
+      <div class="divider reveal" style="--i:1"></div>
+      <div class="moments-album">
+        <figure class="moment moment-1" style="--i:0">
+          <img src="assets/gallery/emil-jitha-01.jpg" srcset="assets/gallery/emil-jitha-01-800.jpg 800w, assets/gallery/emil-jitha-01.jpg 1280w" sizes="(max-width:560px) 92vw, 500px" width="1280" height="855" loading="lazy" decoding="async" alt="Emil and Jitha standing together on the waterfront">
+        </figure>
+        <figure class="moment moment-2" style="--i:1">
+          <img src="assets/gallery/emil-jitha-02.jpg" srcset="assets/gallery/emil-jitha-02-800.jpg 800w, assets/gallery/emil-jitha-02.jpg 1280w" sizes="(max-width:560px) 80vw, 440px" width="1280" height="855" loading="lazy" decoding="async" alt="Emil and Jitha sitting together over coffee at a café">
+        </figure>
+        <figure class="moment moment-3" style="--i:2">
+          <img src="assets/gallery/emil-jitha-03.jpg" srcset="assets/gallery/emil-jitha-03-800.jpg 800w, assets/gallery/emil-jitha-03.jpg 1280w" sizes="(max-width:560px) 72vw, 400px" width="1280" height="855" loading="lazy" decoding="async" alt="Emil and Jitha posing playfully on the waterfront">
+        </figure>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var figs=document.querySelectorAll('#moments .moment');
+    if(!('IntersectionObserver' in window)){figs.forEach(function(f){f.classList.add('in');});return;}
+    var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target);}});},{threshold:0.15,rootMargin:'0px 0px -30px 0px'});
+    figs.forEach(function(f){o.observe(f);});
+  })();
+  </script>
 
   <!-- ============================================================
        07 — COUNTDOWN  (target set in script.js -> CONFIG.weddingDate)
